@@ -338,56 +338,6 @@ function noSearchDefaultPageRender() {
 			audio.spin.currentTime = 0;
 		});
 
-		validatedElements.historyToggle.addEventListener("change", () => {
-			if (validatedElements.historyToggle.checked) {
-				audio.toggleOff.pause();
-				audio.toggleOff.currentTime = 0;
-				audio.toggleOn.currentTime = 0;
-				audio.toggleOn.play();
-			} else {
-				audio.toggleOn.pause();
-				audio.toggleOn.currentTime = 0;
-				audio.toggleOff.currentTime = 0;
-				audio.toggleOff.play();
-			}
-		});
-
-		validatedElements.clearHistory.addEventListener("click", () => {
-			audio.warning.play();
-		});
-
-		validatedElements.defaultBangSelect.addEventListener("bangError", () => {
-			audio.warning.currentTime = 0;
-			audio.warning.play();
-		});
-
-		validatedElements.defaultBangSelect.addEventListener("bangSuccess", () => {
-			audio.click.currentTime = 0;
-			audio.click.play();
-		});
-
-		validatedElements.closeModal.addEventListener("closed", () => {
-			validatedElements.settingsButton.classList.remove("rotate");
-			audio.spin.playbackRate = 0.7;
-			audio.spin.currentTime = 0;
-			audio.spin.play();
-			audio.spin.onended = () => {
-				audio.spin.playbackRate = 1;
-			};
-		});
-
-		validatedElements.addBang.addEventListener("click", () => {
-			audio.click.currentTime = 0.1;
-			audio.click.playbackRate = 2;
-			audio.click.play();
-		});
-
-		validatedElements.removeBangs.forEach((button) => {
-			button.addEventListener("click", () => {
-				audio.warning.currentTime = 0;
-				audio.warning.play();
-			});
-		});
 	}
 
 	validatedElements.copyButton.addEventListener("click", async () => {
